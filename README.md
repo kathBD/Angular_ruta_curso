@@ -2,7 +2,7 @@
 # Angular_ruta_curso
 developer_angular
 ECMA6+
-# react-base NPM
+
 =======
 # Angular_ruta_curso_platzi
 
