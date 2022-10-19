@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-# Angular_ruta_curso
-developer_angular
-ECMA6+
 
-=======
 # Angular_ruta_curso_platzi
 
 ## Frontend a profundidad con Angular
@@ -26,4 +21,3 @@ ECMA6+
 
 
 
->>>>>>> d6323aa63bd0ee4b9254cae6625fdaa7ccff213c
