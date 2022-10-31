@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>call-apply-bind</title>
+  </head>
+  <body>
+    <style>
+      button {
+        background-color: black;
+        color: aliceblue;
+        margin: 5px;
+        list-style:none;
+        
+      }
+      button:hover{
+        background: blue; 
+        color: white; 
+        list-style: none;
+      }
+    </style>
+    <a href="../ejercicios/">Go Back</a>
+    <p><em>Abre consola</em></p>
+
+    <ul>
+      <li><button class="call-to-action">Aprender</button></li>
+      <li><button class="call-to-action">Aprender más</button></li>
+      <li><button class="call-to-action">Nunca pares de Aprender!!</button></li>
+    </ul>
+
+    <script>
+      //establecer 'this usando call'
+
+      function saludar () {
+        console.log(`Hola, soy ${this.name} ${this.apellido}`)
+      }
+
+      const pedro = {
+        name: 'Pedro',
+        apellido: 'Lopez Juanes'
+      }
+
+      saludar.call(pedro)
+
+      //establcer this usando call y pasasr argumentos a la funcion
+      function caminar (metros, direccion) {
+        console.log(`${this.name} camina ${metros} metros hacia ${direccion}`)
+      }
+
+      caminar.call(pedro, 400, 'norte')
+
+      //establcer this usando apply y pasasr argumentos a la funcion
+
+      /*const valores = [800, 'sur']
+     caminar.apply(pedro, valores);
+  */
+      caminar.apply(pedro, [800, 'Sur'])
+
+      /*
+  call -comas
+  apply -array argumentos
+  
+  */
+
+      //establcer this en una nueva funcion usando bind
+      const daniel = {
+        name: ' Daniel',
+        apellido: 'Goz'
+      }
+
+      const danielSaluda = saludar.bind(daniel)
+
+      danielSaluda()
+
+      const danielCamina = caminar.bind(daniel)
+      danielCamina(1000, 'oeste')
+
+      const danielCamina2 = caminar.bind(daniel, 300, 'noreste')
+      danielCamina2()
+      //se guarda parcialmente
+      const danielCamina3 = caminar.bind(daniel, 500)
+      danielCamina3('este')
+
+      //cuando es util usar uno de estos metodos
+
+      const btns = document.getElementsByClassName('call-to-action');
+    //   btns.array.forEach(button => {
+    //     button.onclick = () =>alert("Nunca pares de aprender") });
+//nos da error porque es un nodelist
+     
+      Array.prototype.forEach.call(btns, button => {
+       button.onclick = () =>alert("Nunca pares de aprender");
+    });
+
+
+    </script>
+  </body>
+</html>

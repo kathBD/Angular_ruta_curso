@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Angular_ruta_curso/profesionalJS/assets/index.css" />
+    <title>Curso Profesional de JavaScript: Ejercicios</title>
+  </head>
+  <body>
+    <header>
+      <h1>MediaPlayer.js</h1>
+      <p>An extensible media player.</p>
+    </header>
+
+    <main class="container">
+      <video class="movie">
+        <source src="../assets/20220102_140251.mp4" />
+      </video>
+
+      <button id="playButton">Play/Pause</button>
+      <button id="muteButton">Mute/Unmute</button>
+    </main>
+
+    <h2>The Park</h2>
+
+    <!-- <script>
+      const video = document.querySelector("video");
+      const btn = document.querySelector("button");
+
+      function MediaPlayer(config) {
+        this.media = config.el;
+      }
+
+      MediaPlayer.prototype.play = function () {
+        this.media.play();
+      };
+
+      MediaPlayer.prototype.togglePlay = function () {
+        if (this.media.paused) {
+          this.media.play();
+        } else {
+          this.media.pause();
+        }
+      };
+
+      const player = new MediaPlayer({ el: video });
+
+      btn.onclick = () => video.play();
+    </script> -->
+
+  <script src="../assets/index.js"></script>
+  </body>
+</html>

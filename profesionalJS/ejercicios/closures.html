@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <a href="./ejercicios/">Go Back</a>
+    <p><em>Abre consola</em></p>
+
+    <script>
+     //closures
+     //printColor
+
+    //  let color = 'blue';
+
+    //  function printColor(){
+    //     console.log(color)
+    //  }
+
+    //  printColor();
+
+    (function (){
+        let color = 'blue';
+
+        function printColor(){
+            console.log(color);
+        }
+        printColor();
+    })();
+
+    //funciones que regresan funciones
+
+    function makeColorPrint(color){
+        let colorMessage = `The color is ${color}`;
+
+        return function  () {
+        console.log(colorMessage)
+    }
+    }
+    /****************************/
+
+    let blueColorPrint = makeColorPrint('blue');
+
+    console.log(blueColorPrint());
+
+    // const counter ={
+    //     count:3
+    // }
+
+    // console.log(counter.count)
+
+/**************************************/
+
+function makeCounter(n){
+    let count =n;
+
+    return{
+        incrementa : function(){
+            count = count +1;
+        },
+        decrementa : function(){
+            count = count -1;
+        },
+        getCount: function(){
+            return count;
+        }
+    }
+}
+
+    let counter = makeCounter(7);
+
+    console.log('El conteo es: ', counter.getCount());
+
+    counter.decrementa();
+    counter.decrementa();
+    counter.decrementa();
+    console.log('El conteo es: ', counter.getCount())
+
+    </script>
+</body>
+</html>

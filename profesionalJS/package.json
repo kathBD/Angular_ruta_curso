@@ -1,0 +1,16 @@
+{
+  "name": "profesionaljs - media_player",
+  "version": "1.0.0",
+  "description": "Proyecto del curso profesional de JS ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "keywords": [],
+  "author": "kathB",
+  "license": "MIT"
+}
