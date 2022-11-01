@@ -35,4 +35,5 @@ class Empleado
   constructor(public name:string, public lastname: string){}
 }
 const josep = new Empleado('Juan', 'Josep');
+josep.name;
 
