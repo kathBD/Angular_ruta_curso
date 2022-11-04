@@ -1,8 +1,80 @@
+
+<h1>*ngFor</h1>
+
+<button></button>
+<ul>
+  <li *ngFor="let nombre of nombres; index as i">
+    {{i}} {{nombre}}
+    </li>
+
+    <li *ngFor="let emoji of emojis; index as i">
+      {{i}} {{emoji}}
+     </li>
+</ul>
+
+<hr>
+<h1>*ngIf</h1>
+
+
+<input type="text" required [(ngModel)]="person.name" />
+<p *ngIf="person.name === 'nicolas'">Soy Nicolas</p>
+<p *ngIf="person.name === 'julian' && person.age === 18; else myBlock">Soy Julian</p>
+<ng-template #myBlock>
+  <p>Bloque de else</p>
+</ng-template>
+
+
+<input type="text" required [(ngModel)]="person.name">
+<P *ngIf="person.name == 'luz';then thenMyBlock else otherElseMyBlock"> Hola soy Tartañan</P>
+<ng-template #thenMyBlock>
+  <p>Hola luz</p>
+</ng-template>
+<ng-template #otherElseMyBlock>
+  <p>Ingresa la palabra luz</p>
+</ng-template>
+
+<hr>
+<h1>NgModel</h1>
+
+<p>Nombre {{person.name}}</p>
+<input type="text" required=""#nameInput="ngModel" [(ngModel)]="person.name"/>
+<p>Valid:{{nameInput.valid}}</p>
+<input type="number" max="18" min="10" required=""#ageInput="ngModel" [(ngModel)]="person.age"/>
+<p>Valid:{{ageInput.valid}}</p>
+
+<hr>
+
+<h1>Eventos</h1>
+
+<button [disabled]="btnDissabled">Enviar</button>
+<button (click)="toggleButton()">Toggle Button</button>
+<p>Edad {{person.age}}</p>
+<button (click)=" ingrementarEdad()">Age ++</button>
+
+
+<div class="box" (scroll)="onScroll($event)">
+  <p>  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat illum iusto
+    provident delectus tempora aliquam ab id voluptatum, quos, consectetur
+  omnis numquam. Debitis voluptatum quasi odio commodi impedit similique tenetur?</p>
+
+</div>
+<!-- leer eventos en input actualiaz el input-->
+<p>Nombre {{person.name}}</p>
+<input type="text" [value]= "person.name" (keyup)="changeName($event)"/>
+<hr>
+
 <h1>Propiedades</h1>
 
 <!-- modificar estados que se envian desde el componente -->
 <button [disabled]="btnDissabled">Enviar</button>
 <input type="text" [value]= "name"/>
+<progress  max="100" [value]="age"></progress>
+<img width= "100" [src]="img" alt="33"/>
+
+<hr>
+<input type="text" [value]= "person.name"/>
+<input type="text" [value]= "person.age"/>
+<img width= "100" [src]="person.avatar" alt="photo"/>
 
 
 <hr>
