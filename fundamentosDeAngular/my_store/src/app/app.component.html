@@ -1,11 +1,17 @@
 
 <h1>*ngFor</h1>
-
-<button></button>
+<input type="text" required [(ngModel)]="newName" />
+<button (click)="addName()">Add name</button>
 <ul>
+<li *ngIf="nombres.length===0">No hay nombres</li>
+
   <li *ngFor="let nombre of nombres; index as i">
     {{i}} {{nombre}}
+    <button (click)="deleteName(i)">Delete</button>
     </li>
+</ul>
+<p>Emonjis</p>
+<ul>
 
     <li *ngFor="let emoji of emojis; index as i">
       {{i}} {{emoji}}

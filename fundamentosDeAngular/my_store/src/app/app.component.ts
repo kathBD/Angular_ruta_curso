@@ -24,6 +24,8 @@ export class AppComponent {
 
  nombres: string [] = ['Juan', 'Nicolas', 'Ana', 'Angel'];
 
+ newName ='';
+
  emojis = [ '😂' , '🐦', '🐳','🌮', '💚', '🐦'];
 
 
@@ -43,5 +45,13 @@ export class AppComponent {
   changeName(event: Event){
     const element = event.target as HTMLInputElement;
     this.person.name = element.value;
+  }
+  addName(){
+    this.nombres.push(this.newName);
+    this.newName ='';//limpiar input
+  }
+
+  deleteName(index: number){
+    this.nombres.splice(index, 1);
   }
 }
