@@ -1,4 +1,52 @@
+<h1>class & style</h1>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name"/>
+<p class="message-error"[class.invalid]="nameInput3.invalid">
+  El campo es requerido
+</p>
 
+<hr>
+<h1>ngSwitch</h1>
+
+<input type="text" require [(ngModel)]="person.name"/>
+<div [ngSwitch]="person.name">
+  <p *ngSwitchCase="'kat'">
+  La persona Kath
+</p>
+<p **ngSwitchCase="'Angel'">
+  La persona Angel
+</p>
+<p *ngSwitchCase="'Juan'">
+  La persona Juan
+</p>
+<p *ngSwitchDefault>No hay match</p>
+
+</div>
+
+
+<!-- <p *ngIf="person.name ==='kat'">
+  La persona Kath
+</p>
+<p *ngIf="person.name ==='Angel'">
+  La persona Angel
+</p>
+<p *ngIf="person.name ==='Juan'">
+  La persona Juan
+</p> -->
+
+
+
+
+<h1>*ngFor Objs</h1>
+<div class="products--grid">
+  <div *ngFor="let product of products">
+    <img  [src]="product.image" alt="image">
+    <h2>{{product.price}}</h2>
+    <p>{{product.name}}</p>
+
+  </div>
+</div>
+
+<hr>
 <h1>*ngFor</h1>
 <input type="text" required [(ngModel)]="newName" />
 <button (click)="addName()">Add name</button>
@@ -96,7 +144,7 @@
 <!-- usando las variables desde appcomponents.ts-->
 <h3>Hola, soy {{name}} y mi apellido es {{lastname}}</h3>
 <!-- imagenes -->
-<img src="{{img}}" alt="imagen">
+<img width="200" src="{{img}}" alt="imagen">
 
 <hr>
 

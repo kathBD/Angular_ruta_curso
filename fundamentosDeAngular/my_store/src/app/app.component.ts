@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Product} from './product.model'; //importa una interface
 
 //decorador
 
@@ -28,7 +29,35 @@ export class AppComponent {
 
  emojis = [ '😂' , '🐦', '🐳','🌮', '💚', '🐦'];
 
-
+//products=[
+  products: Product[]=[
+  {
+    name:'Lego',
+    price: 450,
+    image: '../assets/images/lego.avif',
+    category: 'all',
+  },
+  {
+    name:'Marvel',
+    price: 50,
+    image: '../assets/images/marvel.avif'
+  },
+  {
+    name:'Bicicleta',
+    price: 1200,
+    image: '../assets/images/bici.webp'
+  },
+  {
+    name:'StarWars',
+    price: 500,
+    image: '../assets/images/starWars.avif'
+  },
+  {
+    name:'Peluche',
+    price: 600,
+    image: '../assets/images/peluche.webp'
+  },
+]
 
    toggleButton(){
     this.btnDissabled = !this.btnDissabled;
@@ -47,8 +76,8 @@ export class AppComponent {
     this.person.name = element.value;
   }
   addName(){
-    this.nombres.push(this.newName);
-    this.newName ='';//limpiar input
+    this.nombres.push(this.newName);//agregar nombre
+    this.newName ='';//limpiar input en estado vacio
   }
 
   deleteName(index: number){
