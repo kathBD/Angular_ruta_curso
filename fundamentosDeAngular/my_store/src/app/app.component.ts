@@ -10,12 +10,21 @@ import {Product} from './product.model'; //importa una interface
 })
 
 export class AppComponent {
+  [x: string]: any;
+
+widthImg = 10;
+
  // title = 'my_store'; //deben tener un acceso publico
  name = 'Kathe';
  lastname = 'D';
  age = 30;
  img = 'https://images.unsplash.com/photo-1506585775532-2d6f494f607d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHN1cmZ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60';
  btnDissabled = true; //boton desabilitado
+ register ={
+   name:'',
+   email:'',
+   password:'',
+ }
 //aplicacion con un objeto
  person ={
      name: 'María',
@@ -28,6 +37,13 @@ export class AppComponent {
  newName ='';
 
  emojis = [ '😂' , '🐦', '🐳','🌮', '💚', '🐦'];
+
+ box={
+  width: 100,
+  height: 100,
+  background: 'red'
+
+ };
 
 //products=[
   products: Product[]=[
@@ -82,5 +98,9 @@ export class AppComponent {
 
   deleteName(index: number){
     this.nombres.splice(index, 1);
+  }
+
+  onRegister() {
+    console.log(this.register);
   }
 }

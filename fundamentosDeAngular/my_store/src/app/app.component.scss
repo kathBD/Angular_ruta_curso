@@ -15,32 +15,52 @@
   flex-direction: column;
 
 
+
   div{
     img{
       width: 100%;
       border-radius: 10px;
-
+      border: 1px solid rgb(165, 165, 167);
     }
     h2,p{
       margin: 0;
     }
   }
 }
+
+.styles{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+
+}
+
+
 .message-error{
   background: red;
   color: whitesmoke;
+  font-style: normal;
   opacity: 0;
   transition: all linear .5s;
   &.invalid{
     opacity: 1;
   }
 }
-
-
+.line-error{
+  height: 0;
+  border-bottom: 1px solid;
+  &.invalid{
+    border-color: red ;
+}
+&.valid{
+  border-color: green ;
+}
+}
 @media screen and (min-width: 40em){
   .products--grid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 15px
+    grid-gap: 15px;
+
   }
 }
