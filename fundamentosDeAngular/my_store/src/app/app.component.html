@@ -1,35 +1,64 @@
+<h1>Demo_angular framewordk</h1>
+
+<h2>Peliculas</h2>
+<form  *ngFor="let movie of movies">
+  <h3>{{movie.name}}</h3>
+  <button type="button" [disabled]="movie.quantity<=0" (click)="removeMoviesQuantity(movie.name)" >-</button>
+   {{movie.quantity}}
+  <button type="button" [disabled]="movie.quantity>=movie.available" (click)="addMoviesQuantity(movie.name)">+</button>
+</form>
+
+
+<hr />
+
 <h1>Formulario</h1>
 <form (ngSubmit)="onRegister()" #myForm="ngForm">
   <div class="input-group">
     <label for="name">Nombre</label>
-    <input type="text" name="name" required id="name" [(ngModel)]="register.name" />
+    <input
+      type="text"
+      name="name"
+      required
+      id="name"
+      [(ngModel)]="register.name"
+    />
     <p>Mensajes de error</p>
   </div>
   <div class="input-group">
     <label for="email">Email</label>
-    <input type="email" name="email" required id="email" [(ngModel)]="register.email" />
+    <input
+      type="email"
+      name="email"
+      required
+      id="email"
+      [(ngModel)]="register.email"
+    />
     <p>Mensajes de error</p>
   </div>
   <div class="input-group">
     <label for="password">Password</label>
-    <input type="password" name="password" required id="password" [(ngModel)]="register.password" />
+    <input
+      type="password"
+      name="password"
+      required
+      id="password"
+      [(ngModel)]="register.password"
+    />
     <p>Mensajes de error</p>
   </div>
   <button [disabled]="myForm.invalid" type="submit">Registrar</button>
   <button type="button">Accion</button>
 </form>
 
-
-
-
-<hr>
+<hr />
 <h1>NgClass $ NgStyle</h1>
-<input type="text" required #nameInput5="ngModel" [(ngModel)]="person.name">
-<hr class="line-error"
-[ngClass]="{
-  'valid': nameInput5.valid,
-  'invalid':  nameInput5.invalid
-}"
+<input type="text" required #nameInput5="ngModel" [(ngModel)]="person.name" />
+<hr
+  class="line-error"
+  [ngClass]="{
+    valid: nameInput5.valid,
+    invalid: nameInput5.invalid
+  }"
 />
 <p class="message-error" [class.invalid]="nameInput5.invalid">
   El campo es requerido
@@ -42,65 +71,55 @@
     <input type="color" [(ngModel)]="box.background" />
   </div>
   <div>
-    <div [ngStyle]="{
-      'width.px': box.width,
-      'height.px': box.height,
-      'background-color': box.background,
-      'display': 'block'
-    }"></div>
+    <div
+      [ngStyle]="{
+        'width.px': box.width,
+        'height.px': box.height,
+        'background-color': box.background,
+        display: 'block'
+      }"
+    ></div>
   </div>
 </div>
 
-
-<hr>
+<hr />
 
 <h1>class & style</h1>
-<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name"/>
-<p class="message-error"[class.invalid]="nameInput3.invalid">
-
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p class="message-error" [class.invalid]="nameInput3.invalid">
   El campo es requerido
 </p>
 
-
-
-
-<hr>
+<hr />
 <label>Nombre</label>
 <!-- variable tipo templete #se crea variable-->
-<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name"/>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
 <!-- modificar los estilos style-online -->
 
-<p [style.font-style]="nameInput4.invalid ? 'italic' : 'normal'">Texto texto texto</p>
+<p [style.font-style]="nameInput4.invalid ? 'italic' : 'normal'">
+  Texto texto texto
+</p>
 
 <div class="styles">
   <div>
-    <input type="text"  [(ngModel)]="widthImg"/>
+    <input type="text" [(ngModel)]="widthImg" />
   </div>
   <div>
     <!-- [style.width.%]  para la imagen se ajuste en porcentaje-->
-    <img [style.width.px]="widthImg" [src]="person.avatar" alt="photo"/>
+    <img [style.width.px]="widthImg" [src]="person.avatar" alt="photo" />
   </div>
 </div>
 
-
-<hr>
+<hr />
 <h1>ngSwitch</h1>
 
-<input type="text" require [(ngModel)]="person.name"/>
+<input type="text" require [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">
-  <p *ngSwitchCase="'kat'">
-  La persona Kath
-</p>
-<p *ngSwitchCase="'Angel'">
-  La persona Angel
-</p>
-<p *ngSwitchCase="'Juan'">
-  La persona Juan
-</p>
-<p *ngSwitchDefault>No hay match</p>
-
+  <p *ngSwitchCase="'kat'">La persona Kath</p>
+  <p *ngSwitchCase="'Angel'">La persona Angel</p>
+  <p *ngSwitchCase="'Juan'">La persona Juan</p>
+  <p *ngSwitchDefault>No hay match</p>
 </div>
-
 
 <!-- <p *ngIf="person.name ==='kat'">
   La persona Kath
@@ -112,53 +131,48 @@
   La persona Juan
 </p> -->
 
-
-
-
 <h1>*ngFor Objs</h1>
 <div class="products--grid">
   <div *ngFor="let product of products">
-    <img  [src]="product.image" alt="image">
-    <h2>{{product.price}}</h2>
-    <p>{{product.name}}</p>
-
+    <img [src]="product.image" alt="image" />
+    <h2>{{ product.price }}</h2>
+    <p>{{ product.name }}</p>
   </div>
 </div>
 
-<hr>
+<hr />
 <h1>*ngFor</h1>
 <input type="text" required [(ngModel)]="newName" />
 <button (click)="addName()">Add name</button>
 <ul>
-<li *ngIf="nombres.length===0">No hay nombres</li>
+  <li *ngIf="nombres.length === 0">No hay nombres</li>
 
   <li *ngFor="let nombre of nombres; index as i">
-    {{i}} {{nombre}}
+    {{ i }} {{ nombre }}
     <button (click)="deleteName(i)">Delete</button>
-    </li>
+  </li>
 </ul>
 <p>Emonjis</p>
 <ul>
-
-    <li *ngFor="let emoji of emojis; index as i">
-      {{i}} {{emoji}}
-     </li>
+  <li *ngFor="let emoji of emojis; index as i">{{ i }} {{ emoji }}</li>
 </ul>
 
-<hr>
+<hr />
 <h1>*ngIf</h1>
-
 
 <input type="text" required [(ngModel)]="person.name" />
 <p *ngIf="person.name === 'nicolas'">Soy Nicolas</p>
-<p *ngIf="person.name === 'julian' && person.age === 18; else myBlock">Soy Julian</p>
+<p *ngIf="person.name === 'julian' && person.age === 18; else myBlock">
+  Soy Julian
+</p>
 <ng-template #myBlock>
   <p>Bloque de else</p>
 </ng-template>
 
-
-<input type="text" required [(ngModel)]="person.name">
-<P *ngIf="person.name == 'luz';then thenMyBlock else otherElseMyBlock"> Hola soy Tartañan</P>
+<input type="text" required [(ngModel)]="person.name" />
+<P *ngIf="person.name == 'luz'; then thenMyBlock; else otherElseMyBlock">
+  Hola soy Tartañan</P
+>
 <ng-template #thenMyBlock>
   <p>Hola luz</p>
 </ng-template>
@@ -166,65 +180,70 @@
   <p>Ingresa la palabra luz</p>
 </ng-template>
 
-<hr>
+<hr />
 <h1>NgModel</h1>
 
-<p>Nombre {{person.name}}</p>
-<input type="text" required=""#nameInput="ngModel" [(ngModel)]="person.name"/>
-<p>Valid:{{nameInput.valid}}</p>
-<input type="number" max="18" min="10" required=""#ageInput="ngModel" [(ngModel)]="person.age"/>
-<p>Valid:{{ageInput.valid}}</p>
+<p>Nombre {{ person.name }}</p>
+<input type="text" required="" #nameInput="ngModel" [(ngModel)]="person.name" />
+<p>Valid:{{ nameInput.valid }}</p>
+<input
+  type="number"
+  max="18"
+  min="10"
+  required=""
+  #ageInput="ngModel"
+  [(ngModel)]="person.age"
+/>
+<p>Valid:{{ ageInput.valid }}</p>
 
-<hr>
+<hr />
 
 <h1>Eventos</h1>
 
 <button [disabled]="btnDissabled">Enviar</button>
 <button (click)="toggleButton()">Toggle Button</button>
-<p>Edad {{person.age}}</p>
-<button (click)=" ingrementarEdad()">Age ++</button>
-
+<p>Edad {{ person.age }}</p>
+<button (click)="ingrementarEdad()">Age ++</button>
 
 <div class="box" (scroll)="onScroll($event)">
-  <p>  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat illum iusto
-    provident delectus tempora aliquam ab id voluptatum, quos, consectetur
-  omnis numquam. Debitis voluptatum quasi odio commodi impedit similique tenetur?</p>
-
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat illum
+    iusto provident delectus tempora aliquam ab id voluptatum, quos, consectetur
+    omnis numquam. Debitis voluptatum quasi odio commodi impedit similique
+    tenetur?
+  </p>
 </div>
 <!-- leer eventos en input actualiaz el input-->
-<p>Nombre {{person.name}}</p>
-<input type="text" [value]= "person.name" (keyup)="changeName($event)"/>
-<hr>
+<p>Nombre {{ person.name }}</p>
+<input type="text" [value]="person.name" (keyup)="changeName($event)" />
+<hr />
 
 <h1>Propiedades</h1>
 
 <!-- modificar estados que se envian desde el componente -->
 <button [disabled]="btnDissabled">Enviar</button>
-<input type="text" [value]= "name"/>
-<progress  max="100" [value]="age"></progress>
-<img width= "100" [src]="img" alt="33"/>
+<input type="text" [value]="name" />
+<progress max="100" [value]="age"></progress>
+<img width="100" [src]="img" alt="33" />
 
-<hr>
-<input type="text" [value]= "person.name"/>
-<input type="text" [value]= "person.age"/>
-<img width= "100" [src]="person.avatar" alt="photo"/>
+<hr />
+<input type="text" [value]="person.name" />
+<input type="text" [value]="person.age" />
+<img width="100" [src]="person.avatar" alt="photo" />
 
-
-<hr>
+<hr />
 
 <h1>Hola Mundo Angular</h1>
 
 <!-- //se puede hacer manipulaciones del string como repetirlo -->
-<h2>{{'Hola Mundo'.repeat(5)}}</h2>
+<h2>{{ "Hola Mundo".repeat(5) }}</h2>
 
 <!--//diferenciar lo que se hace en html y el string interpolation-->
-<p>3 + 3 = {{3+3}}</p>
+<p>3 + 3 = {{ 3 + 3 }}</p>
 
 <!-- usando las variables desde appcomponents.ts-->
-<h3>Hola, soy {{name}} y mi apellido es {{lastname}}</h3>
+<h3>Hola, soy {{ name }} y mi apellido es {{ lastname }}</h3>
 <!-- imagenes -->
-<img width="200" src="{{img}}" alt="imagen">
+<img width="200" src="{{ img }}" alt="imagen" />
 
-<hr>
-
-
+<hr />

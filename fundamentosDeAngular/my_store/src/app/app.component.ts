@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import {Product} from './product.model'; //importa una interface
 
+type Movie = {
+  name: String,
+  available: number,
+  quantity: number,
+};
+type Movies = Array<Movie>;
 //decorador
 
 @Component({
@@ -11,6 +17,27 @@ import {Product} from './product.model'; //importa una interface
 
 export class AppComponent {
   [x: string]: any;
+
+  movies: Movies= [
+    {
+      name: "Batman",
+      available : 5,
+      quantity: 0,
+
+    },
+    {
+      name: "Hombre del Norte",
+      available: 4,
+      quantity: 0,
+
+    },
+    {
+      name: "Capitan America",
+      available: 10,
+      quantity: 0,
+
+    },
+  ]
 
 widthImg = 10;
 
@@ -103,4 +130,20 @@ widthImg = 10;
   onRegister() {
     console.log(this.register);
   }
+
+//metodos peliculas
+
+addMoviesQuantity(movieName: String){
+  const movieIndex = this.movies.findIndex(
+    (movie) => movie.name === movieName,
+  );
+  this.movies[movieIndex].quantity +=1;
+}
+removeMoviesQuantity(movieName: String){
+  const movieIndex = this.movies.findIndex(
+    (movie) => movie.name === movieName,
+  );
+  this.movies[movieIndex].quantity -=1;
+}
+
 }
