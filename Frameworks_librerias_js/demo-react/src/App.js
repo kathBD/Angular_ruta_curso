@@ -1,50 +1,39 @@
-
-import './App.css';
-import Form from "./Form"
+import React from "react";
+import Form from "./Form";
+import { Title } from "./Title";
+import { Theme } from "./Theme";
 
 const movies = [
   {
-    name: "Batman",
-    available : 5,
-
+    name: "Avangers",
+    available: 5
   },
   {
-    name: "Hombre del Norte",
-    available: 4,
-
+    name: "Kingkom",
+    available: 3
   },
   {
-    name: "Capitan America",
-    available: 10,
-
+    name: "Terminator",
+    available: 3
   },
-]
-function App() {
+  {
+    name: "Superman",
+    available: 3
+  }
+];
+
+export default function App() {
+  const [theme, setTheme] = React.useState("avangers");
+
   return (
-    <div>
-    <h2>Películas</h2>
-    {movies.map((movie) => (
-      <Form movie={movie} />
-    ))}
-   </div>
+    <Theme theme={theme}>
+      <Title>Películas</Title>
+      {movies.map((movie) => (
+        <Form movie={movie} updateTheme={() => setTheme(movie.name)} />
+      ))}
+    </Theme>
   );
 }
-
-export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
